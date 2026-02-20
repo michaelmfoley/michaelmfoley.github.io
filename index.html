@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael M. Foley</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">Michael Foley</a>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="cv.html">CV</a>
+            <a href="research.html">Research</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <button class="nav-toggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <main class="hero">
+        <div class="hero-content fade-in">
+            <h1>Michael M. Foley</h1>
+            <p class="hero-tagline">Climate &amp; Agriculture &bull; Astrophysics &bull; Data Visualization</p>
+            <p class="hero-description">
+                AWS Climate Data Science Fellow at Harvard. Building global crop yield datasets,
+                mapping the interstellar medium in 3D, and making complex data accessible
+                through interactive visualization.
+            </p>
+            <div class="hero-buttons">
+                <a href="research.html" class="btn btn-primary">View Research</a>
+                <a href="cv.html" class="btn btn-outline">Curriculum Vitae</a>
+            </div>
+        </div>
+    </main>
+
+    <div class="scroll-indicator" id="scroll-indicator">
+        <div class="scroll-indicator-dot"></div>
+    </div>
+
+    <section class="highlights">
+        <a href="research.html#climate" class="highlight-card fade-in">
+            <div class="highlight-icon">🌾</div>
+            <h3>Climate &amp; Agriculture</h3>
+            <p>Building the world's most comprehensive subnational crop yield dataset. Coupling remote sensing with ground-based observations to understand how climate shapes agriculture.</p>
+        </a>
+        <a href="research.html#astrophysics" class="highlight-card fade-in">
+            <div class="highlight-icon">✦</div>
+            <h3>Astrophysics</h3>
+            <p>Ph.D. from Harvard studying shock-turbulence interactions in star formation. Co-discovered that local star formation occurs on the surface of the Local Bubble. Created the first interactive 3D map of Orion.</p>
+        </a>
+        <a href="research.html#dataviz" class="highlight-card fade-in">
+            <div class="highlight-icon">📊</div>
+            <h3>Data Visualization</h3>
+            <p>Contributor to glue, a linked-data visualization package. Produced the first augmented reality figure published in astronomy. Passionate about making data interactive and accessible.</p>
+        </a>
+    </section>
+
+    <!-- Simulation info toggle -->
+    <button class="sim-info-toggle fade-in" id="sim-info-toggle">About this simulation</button>
+
+    <div class="sim-info-overlay" id="sim-info-overlay"></div>
+    <aside class="sim-info-panel" id="sim-info-panel">
+        <button class="sim-info-close" id="sim-info-close">&times;</button>
+
+        <h2>About This Simulation</h2>
+        <p>The background of this page is a live particle simulation built on the same mathematical principles used to study fluid flows in astrophysics and climate science. Click anywhere to inject particles and watch them evolve.</p>
+
+        <!-- Live stats -->
+        <div class="sim-stats">
+            <div class="sim-stat">
+                <span class="sim-stat-value" id="particle-count">0</span>
+                <span class="sim-stat-label">Particles</span>
+            </div>
+            <div class="sim-stat">
+                <span class="sim-stat-value" id="sim-fps">0</span>
+                <span class="sim-stat-label">FPS</span>
+            </div>
+            <div class="sim-stat">
+                <span class="sim-stat-value" id="flow-mode-label">Turbulent</span>
+                <span class="sim-stat-label">Flow Regime</span>
+            </div>
+        </div>
+
+        <!-- Interactive controls -->
+        <div class="sim-controls">
+            <h3>Controls</h3>
+
+            <div class="sim-control-group">
+                <label for="ctrl-flow-scale">Flow Scale <span class="sim-control-hint">eddy size</span></label>
+                <input type="range" id="ctrl-flow-scale" min="0.001" max="0.008" step="0.0005" value="0.003">
+            </div>
+
+            <div class="sim-control-group">
+                <label for="ctrl-flow-speed">Evolution Speed <span class="sim-control-hint">time progression</span></label>
+                <input type="range" id="ctrl-flow-speed" min="0.0001" max="0.002" step="0.0001" value="0.0004">
+            </div>
+
+            <div class="sim-control-group">
+                <label for="ctrl-damping">Damping <span class="sim-control-hint">viscosity</span></label>
+                <input type="range" id="ctrl-damping" min="0.8" max="0.99" step="0.005" value="0.92">
+            </div>
+
+            <div class="sim-control-group">
+                <label for="ctrl-turbulence">Turbulence Cascade <span class="sim-control-hint">Fourier modes</span></label>
+                <input type="range" id="ctrl-turbulence" min="1" max="6" step="1" value="3">
+            </div>
+
+            <div class="sim-control-group">
+                <label>Color Theme</label>
+                <div class="sim-theme-buttons">
+                    <button class="sim-theme-btn active" data-theme="mixed">All Fields</button>
+                    <button class="sim-theme-btn" data-theme="stellar">Stellar</button>
+                    <button class="sim-theme-btn" data-theme="climate">Climate</button>
+                    <button class="sim-theme-btn" data-theme="vegetation">Vegetation</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Flow field mini-visualizer -->
+        <div class="sim-flow-viz">
+            <h3>Vector Field</h3>
+            <p class="sim-flow-viz-caption">The arrows show the velocity field that advects the particles. Adjust the controls above to see how the field changes.</p>
+            <canvas id="flow-field-canvas" width="320" height="200"></canvas>
+        </div>
+
+        <!-- Power spectrum visualizer -->
+        <div class="sim-flow-viz">
+            <h3>Power Spectrum</h3>
+            <p class="sim-flow-viz-caption">Energy as a function of wavenumber k. Each active mode appears as a peak. The dashed line shows the Kolmogorov k<sup>-5/3</sup> scaling law, the universal signature of turbulent energy cascading from large to small scales.</p>
+            <canvas id="power-spectrum-canvas" width="320" height="200"></canvas>
+        </div>
+
+        <!-- Spatial energy map -->
+        <div class="sim-flow-viz">
+            <h3>Spatial Energy Map</h3>
+            <p class="sim-flow-viz-caption">Kinetic energy density across the screen. Brighter regions have stronger flow. At low mode counts you see broad, smooth structures. Add modes and watch fine-grained detail emerge as the energy cascade populates smaller scales.</p>
+            <canvas id="energy-map-canvas" width="320" height="200"></canvas>
+            <div class="energy-map-colorbar">
+                <span>Low energy</span>
+                <div class="energy-map-gradient"></div>
+                <span>High energy</span>
+            </div>
+        </div>
+
+        <!-- Physics explanation -->
+        <div class="sim-physics">
+            <h3>The Flow Field</h3>
+            <p>Each particle is advected through a 2D velocity field, which is a simplified version of what you compute when solving the Navier-Stokes equations for fluid motion. The field is constructed from superimposed trig functions at different spatial frequencies, mimicking the Fourier decomposition of a turbulent flow:</p>
+            <ul>
+                <li><strong>Large-scale modes</strong> create broad, sweeping currents (like jet streams or galactic-scale gas flows)</li>
+                <li><strong>Small-scale modes</strong> add fine structure and chaotic mixing (like turbulent eddies in molecular clouds or oceanic convection cells)</li>
+            </ul>
+            <p>Use the <em>Turbulence Cascade</em> slider to strip away modes and watch the flow evolve: 1 mode gives smooth laminar streams, 3 modes introduce transitional mixing, and 6 modes produce fully developed turbulence</p>
+
+            <h3>In Astrophysics</h3>
+            <p>Simulations like this (scaled up enormously) are used to study how interstellar gas moves, collapses, and forms stars. In my Ph.D., I ran multi-terabyte simulations studying how shock waves interact with turbulence in star-forming regions. The Kolmogorov energy cascade (energy transferring from large scales to small ones) governs the turbulent structure of the interstellar medium. Try increasing <em>Flow Scale</em> to see larger coherent structures, like you'd find in a giant molecular cloud.</p>
+
+            <h3>In Climate &amp; Agriculture</h3>
+            <p>The same fluid dynamics underpin atmospheric and ocean circulation models. General Circulation Models (GCMs) solve the Navier-Stokes equations on a rotating sphere (Earth) to predict climate. The advection of tracer particles through flow fields, just like these particles are doing, is how climate models transport heat, moisture, and pollutants. The <em>Damping</em> slider controls effective viscosity: low damping lets particles coast freely (like stratospheric flow), while high damping creates tight, responsive motion (like viscous boundary layers). Understanding these flows is essential for predicting how climate variability affects crop yields.</p>
+
+            <h3>The Mouse Interaction</h3>
+            <p>Your cursor applies a force with both radial (inward pull) and tangential (swirling) components, which creates a vortex analogous to hurricanes, accretion disks, or the drain in a bathtub. Clicking injects tracer particles, like introducing dye into a flow to visualize its structure.</p>
+
+            <h3>What's Simplified</h3>
+            <p>Real fluid simulations solve conservation of mass, momentum, and energy on adaptive grids with millions of cells. This visualization uses a prescribed (not self-consistent) velocity field with no pressure feedback or conservation laws. But the visual intuition it builds (how particles cluster along convergent streamlines, how mixing occurs at different scales, and how structure emerges from simple rules) is genuine and physically meaningful.</p>
+        </div>
+    </aside>
+
+    <footer>
+        <p>&copy; 2026 Michael M. Foley</p>
+    </footer>
+
+    <script src="js/particles.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/sim-panel.js"></script>
+</body>
+</html>

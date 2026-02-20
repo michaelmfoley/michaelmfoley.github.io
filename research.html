@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research | Michael M. Foley</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">Michael Foley</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="cv.html">CV</a>
+            <a href="research.html" class="active">Research</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <button class="nav-toggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <main class="page-content">
+        <h1 class="page-title fade-in">Research</h1>
+        <p class="page-subtitle fade-in">Interactive figures from my work across climate science, astrophysics, and data visualization.</p>
+
+        <!-- ==================== Climate & Agriculture ==================== -->
+        <section id="climate" class="research-area research-area--climate fade-in">
+            <h2>Climate &amp; Agriculture</h2>
+            <p>As an AWS Climate Data Science Fellow, I'm building HarvestStat, the world's most comprehensive dataset of subnational crop yield data. This work couples remote sensing with ground-based agricultural observations to understand how climate dynamics shape yield responses globally.</p>
+
+            <div class="figure-container">
+                <h3>Crop Status Dashboard</h3>
+                <iframe loading="lazy" src="https://crop-status-dashboard.onrender.com" style="width:100%; height:1200px; border:none; border-radius:8px;"></iframe>
+            </div>
+
+            <div class="pub-list">
+                <h4>Selected Publications</h4>
+                <ul>
+                    <li><a href="https://doi.org/10.1088/1748-9326/adba0e" target="_blank">HarvestStat: a global effort towards open and standardized sub-national agricultural data</a> — Davis, Anderson, ..., Foley et al. (2025), <em>Environmental Research Letters</em></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ==================== 3D ISM & Star Formation ==================== -->
+        <section id="astrophysics" class="research-area research-area--astro fade-in">
+            <h2>3D Interstellar Medium &amp; Star Formation</h2>
+            <p>A central thread of my research maps the three-dimensional structure of gas and dust in the solar neighborhood. We discovered that all nearby star formation occurs on the surface of the Local Bubble, an expanding superbubble, and built the first interactive 3D maps of the Orion star-forming complex.</p>
+
+            <div class="figure-container">
+                <h3>The Local Bubble</h3>
+                <p class="figure-caption">An expanding supershell ~1,000 light-years across, driven by supernovae over the past ~14 Myr. Star-forming regions sit on its surface. From <a href="https://doi.org/10.1038/s41586-021-04286-5" target="_blank">Zucker, Goodman, Alves, Bialy, Foley et al. (2022)</a>. Drag to rotate.</p>
+                <iframe loading="lazy" src="https://faun.rc.fas.harvard.edu/czucker/Paper_Figures/Interactive_Figure1.html" style="width:100%; height:600px; border:none; border-radius:8px; background:#050508;"></iframe>
+            </div>
+
+            <div class="figure-container">
+                <h3>The Radcliffe Wave Is Oscillating</h3>
+                <p class="figure-caption">A 9,000 light-year sinusoidal chain of molecular clouds, the largest coherent gas structure in the Galaxy, oscillating through the Galactic plane. From <a href="https://doi.org/10.1038/s41586-024-07127-3" target="_blank">Konietzka, Goodman, Zucker, ..., Foley et al. (2024)</a>. Drag to rotate; click legend items to toggle layers.</p>
+                <iframe loading="lazy" src="https://faun.rc.fas.harvard.edu/czucker/rkonietzka/radwave/interactive-figure6/" style="width:100%; height:600px; border:none; border-radius:8px; background:#050508;"></iframe>
+            </div>
+
+            <div class="figure-container">
+                <h3>Orion in 3D: Barnard's Loop &amp; the Orion Complex</h3>
+                <p class="figure-caption">The first interactive 3D map of the Orion star-forming complex, connecting molecular clouds, young stars, and the arc of Barnard's Loop. From <a href="https://ui.adsabs.harvard.edu/abs/2023ApJ...947...66F" target="_blank">Foley, Goodman, Zucker et al. (2023)</a>. Drag to rotate.</p>
+                <iframe loading="lazy" src="https://faun.rc.fas.harvard.edu/czucker/Paper_Figures/mfoley/orion_region_interactive.html" style="width:100%; height:600px; border:none; border-radius:8px; background:#050508;"></iframe>
+            </div>
+
+            <div class="pub-list">
+                <h4>Selected Publications</h4>
+                <ul>
+                    <li><a href="https://doi.org/10.1038/s41586-021-04286-5" target="_blank">Star formation near the Sun is driven by expansion of the Local Bubble</a> — Zucker, Goodman, Alves, Bialy, Foley et al. (2022), <em>Nature</em></li>
+                    <li><a href="https://doi.org/10.1038/s41586-024-07127-3" target="_blank">The Radcliffe wave is oscillating</a> — Konietzka, Goodman, Zucker, ..., Foley et al. (2024), <em>Nature</em></li>
+                    <li><a href="https://ui.adsabs.harvard.edu/abs/2023ApJ...947...66F" target="_blank">A 3D View of Orion. I. Barnard's Loop</a> — Foley, Goodman, Zucker, Forbes, Konietzka, Swiggum (2023), <em>The Astrophysical Journal</em></li>
+                    <li><a href="https://doi.org/10.3847/2041-8213/ac1f96" target="_blank">The Per-Tau Shell: a giant star-forming spherical shell revealed by 3D dust observations</a> — Bialy, Zucker, Goodman, Foley et al. (2021), <em>ApJ Letters</em></li>
+                    <li><a href="https://doi.org/10.3847/1538-4357/ac1f95" target="_blank">On the three-dimensional structure of local molecular clouds</a> — Zucker, Goodman, Alves, Bialy, Koch, Speagle, Foley et al. (2021), <em>ApJ</em></li>
+                    <li><a href="https://doi.org/10.3847/1538-4357/ac1f91" target="_blank">Evidence for radial expansion at the core of the Orion complex with Gaia EDR3</a> — Swiggum, D'Onghia, Alves, Grossschedl, Foley, Zucker (2021), <em>ApJ</em></li>
+                    <li><a href="https://doi.org/10.3847/1538-4357/ad7e20" target="_blank">The passage of the Solar System through the edge of the Local Bubble</a> — Opher, Loeb, Zucker, Goodman, Konietzka, ..., Foley (2024), <em>ApJ</em></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ==================== Supernovae & Cosmology ==================== -->
+        <section id="supernovae" class="research-area research-area--cosmo fade-in">
+            <h2>Supernovae &amp; Cosmology</h2>
+            <p>I contributed to the Pantheon analysis, the largest combined sample of Type Ia supernovae used to measure the expansion history of the Universe, and co-led the Foundation Supernova Survey, a low-redshift anchor for cosmological distance measurements from a single, well-calibrated telescope.</p>
+
+            <div class="figure-container">
+                <h3>Hubble Diagram</h3>
+                <p class="figure-caption">Distance modulus vs. redshift for the full Pantheon sample of 1,048 Type Ia supernovae, illustrating the accelerating expansion of the Universe. From <a href="https://doi.org/10.3847/1538-4357/aab9bb" target="_blank">Scolnic, Jones, ..., Foley et al. (2018)</a>.</p>
+                <div class="static-figure">
+                    <img src="https://content.cld.iop.org/journals/0004-637X/859/2/101/revision1/apjaab9bbf11_hr.jpg" alt="Hubble diagram showing distance modulus vs. redshift for the Pantheon sample of 1,048 Type Ia supernovae with best-fit flat LCDM cosmology" loading="lazy">
+                </div>
+            </div>
+
+            <div class="pub-list">
+                <h4>Selected Publications</h4>
+                <ul>
+                    <li><a href="https://doi.org/10.3847/1538-4357/aab9bb" target="_blank">The complete light-curve sample of spectroscopically confirmed SNe Ia from Pan-STARRS1 and cosmological constraints from the combined Pantheon sample</a> — Scolnic, Jones, ..., Foley, M., ..., et al. (2018), <em>ApJ</em></li>
+                    <li><a href="https://doi.org/10.1093/mnras/stx3136" target="_blank">The Foundation Supernova Survey: motivation, design, implementation, and first data release</a> — Foley, R. J., Scolnic, ..., Foley, M. M., et al. (2018), <em>MNRAS</em></li>
+                    <li><a href="https://doi.org/10.3847/1538-4357/aae2b9" target="_blank">The Foundation Supernova Survey: measuring cosmological parameters with supernovae from a single telescope</a> — Jones, Scolnic, Foley, R. J., ..., Foley, M. M., et al. (2019), <em>ApJ</em></li>
+                    <li><a href="https://doi.org/10.3847/1538-4357/aae2b9" target="_blank">Should Type Ia supernova distances be corrected for their local environments?</a> — Jones, Riess, Scolnic, Pan, Johnson, Coulter, ..., Foley (2018), <em>ApJ</em></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ==================== Turbulence ==================== -->
+        <section id="turbulence" class="research-area research-area--turb fade-in">
+            <h2>Turbulence &amp; Fluid Dynamics</h2>
+            <p>My Ph.D. thesis focused on how shock waves interact with turbulence in star-forming molecular clouds. Using magnetohydrodynamic simulations, I studied how post-shock gas develops turbulent structure across spatial scales and how this affects the conditions for gravitational collapse and star formation.</p>
+
+            <div class="figure-container">
+                <h3>Post-Shock Turbulence Power Spectrum</h3>
+                <p class="figure-caption">3D kinetic energy power spectra of the pre-shock and post-shock regions for a Mach 15 shock passing through supersonic turbulence. From <a href="https://doi.org/10.3847/1538-4357/adfa19" target="_blank">Foley, Mocz, Burkhart, Hernquist, Goodman (2025)</a>.</p>
+                <div class="static-figure">
+                    <img src="https://content.cld.iop.org/journals/0004-637X/992/2/164/revision1/apjadfa19f8_hr.jpg" alt="3D kinetic energy power spectrum showing pre-shock and post-shock turbulence development for Mach 15 shocks through Mach 2 and Mach 5 turbulence" loading="lazy">
+                </div>
+            </div>
+
+            <div class="pub-list">
+                <h4>Selected Publications</h4>
+                <ul>
+                    <li><a href="https://doi.org/10.3847/1538-4357/adfa19" target="_blank">Development of Turbulence in Postshock Regions</a> — Foley, Mocz, Burkhart, Hernquist, Goodman (2025), <em>The Astrophysical Journal</em></li>
+                    <li><a href="https://doi.org/10.1142/S0218301317410087" target="_blank">Revised uncertainties in Big Bang Nucleosynthesis</a> — Foley, Sasankan, Kusakabe, Mathews (2017), <em>Int. J. Mod. Phys. E</em></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ==================== Data Visualization ==================== -->
+        <section id="dataviz" class="research-area research-area--dataviz fade-in">
+            <h2>Data Visualization</h2>
+            <p>I'm a contributor to <a href="https://glueviz.org" target="_blank">glue</a>, a Python package for linked-data visualization used by astronomers and Earth scientists worldwide. Every interactive 3D figure on this page was exported using glue's Plotly plugin. In collaboration with the AAS and Delightex, we published the first augmented reality figure in an astronomy journal. Scan the QR code below to make the Per-Tau Shell float over your desk.</p>
+
+            <div class="figure-container">
+                <h3>The Per-Tau Shell: First AR Figure in Astronomy</h3>
+                <p class="figure-caption">Interactive 3D view of the Per-Tau Shell, a 156 pc diameter star-forming superbubble embedding Perseus and Taurus. From <a href="https://doi.org/10.3847/2041-8213/ac1f96" target="_blank">Bialy, Zucker, Goodman, Foley et al. (2021)</a>. Drag to rotate, or scan the QR code on your phone to view in augmented reality.</p>
+                <div class="ar-figure-layout">
+                    <div class="ar-figure-interactive">
+                        <iframe loading="lazy" src="https://faun.rc.fas.harvard.edu/czucker/Paper_Figures/sbialy/pertau_superbubble.html" style="width:100%; height:500px; border:none; border-radius:8px; background:#050508;"></iframe>
+                    </div>
+                    <div class="ar-figure-qr">
+                        <img src="https://faun.rc.fas.harvard.edu/czucker/Paper_Figures/arcode.png" alt="QR code to view the Per-Tau Shell in augmented reality">
+                        <p>Scan to view in AR</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pub-list">
+                <h4>Selected Publications</h4>
+                <ul>
+                    <li><a href="https://doi.org/10.1103/PhysRevPhysEducRes.21.010124" target="_blank">Improving undergraduate astronomy students' skills with research literature via accessible summaries</a> — Lewis, Waggoner, Clarke, ..., Foley et al. (2025), <em>Phys. Rev. Physics Education Research</em></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Michael M. Foley</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        if (window.location.hash) {
+            requestAnimationFrame(() => {
+                const target = document.querySelector(window.location.hash);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        }
+    </script>
+</body>
+</html>

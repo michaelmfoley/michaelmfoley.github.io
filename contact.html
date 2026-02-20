@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — Michael M. Foley</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">Michael Foley</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="cv.html">CV</a>
+            <a href="research.html">Research</a>
+            <a href="contact.html" class="active">Contact</a>
+        </div>
+        <button class="nav-toggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <main class="page-content contact-page">
+        <h1 class="page-title fade-in">Get in Touch</h1>
+        <p class="page-subtitle fade-in">I'm always happy to discuss research, collaboration, or data visualization.</p>
+
+        <div class="contact-grid fade-in">
+            <div class="contact-info">
+                <div class="contact-card">
+                    <h3>Email</h3>
+                    <a href="mailto:michaelfoley@fas.harvard.edu">michaelfoley [AT] fas [DOT] harvard [DOT] edu</a>
+                </div>
+                <div class="contact-card">
+                    <h3>Affiliation</h3>
+                    <p>Department of Earth and Planetary Sciences<br>
+                    Harvard University<br>
+                    20 Oxford Street<br>
+                    Cambridge, MA 02138</p>
+                </div>
+                <div class="contact-card">
+                    <h3>Links</h3>
+                    <div class="contact-links">
+                        <a href="https://github.com/michaelmfoley" target="_blank">GitHub</a>
+                        <a href="CV_Foley.pdf" target="_blank">Download CV</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TODO: Replace YOUR_FORM_ID with your Formspree form ID -->
+            <form class="contact-form" action="https://formspree.io/f/mgonwdwo" method="POST">
+                <h3>Send a Message</h3>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="_replyto" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Michael M. Foley</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
