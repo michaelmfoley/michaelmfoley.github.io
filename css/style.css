@@ -596,6 +596,33 @@ a:hover {
     }
 }
 
+/* ===== Iframe Loader ===== */
+.iframe-wrap {
+    width: 100%;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+.iframe-load-btn {
+    display: block;
+    width: 100%;
+    padding: 3rem 1.5rem;
+    background: var(--bg-card);
+    border: 1px dashed var(--accent-border);
+    border-radius: var(--radius-sm);
+    color: var(--accent);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.iframe-load-btn:hover {
+    background: var(--accent-subtle);
+    border-color: var(--accent);
+}
+
 /* ===== Static Figures ===== */
 .static-figure {
     border-radius: var(--radius-sm);
@@ -1134,5 +1161,28 @@ footer {
 
     .contact-grid {
         grid-template-columns: 1fr;
+    }
+
+    .page-content {
+        padding: 5rem 1rem 3rem;
+        overflow-x: hidden;
+    }
+
+    .figure-container {
+        padding: 1rem;
+        overflow: hidden;
+    }
+
+    .figure-container iframe {
+        max-width: 100%;
+    }
+
+    .pub-list li {
+        font-size: 0.8rem;
+        word-break: break-word;
+    }
+
+    .research-area {
+        padding-left: 0.75rem;
     }
 }

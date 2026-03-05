@@ -33,7 +33,9 @@
 
             <div class="figure-container">
                 <h3>Crop Status Dashboard</h3>
-                <iframe loading="lazy" src="https://crop-status-dashboard.onrender.com" style="width:100%; height:1200px; border:none; border-radius:8px;"></iframe>
+                <div class="iframe-wrap" data-src="https://crop-status-dashboard.onrender.com" data-height="1200">
+                    <button class="iframe-load-btn">Load Dashboard</button>
+                </div>
             </div>
 
             <div class="pub-list">
@@ -52,19 +54,25 @@
             <div class="figure-container">
                 <h3>The Local Bubble</h3>
                 <p class="figure-caption">An expanding supershell ~1,000 light-years across, driven by supernovae over the past ~14 Myr. Star-forming regions sit on its surface. From <a href="https://doi.org/10.1038/s41586-021-04286-5" target="_blank">Zucker, Goodman, Alves, Bialy, Foley et al. (2022)</a>. Drag to rotate.</p>
-                <iframe loading="lazy" src="https://faun.rc.fas.harvard.edu/czucker/Paper_Figures/Interactive_Figure1.html" style="width:100%; height:600px; border:none; border-radius:8px; background:#050508;"></iframe>
+                <div class="iframe-wrap" data-src="https://faun.rc.fas.harvard.edu/czucker/Paper_Figures/Interactive_Figure1.html" data-height="600">
+                    <button class="iframe-load-btn">Load Interactive Figure</button>
+                </div>
             </div>
 
             <div class="figure-container">
                 <h3>The Radcliffe Wave Is Oscillating</h3>
                 <p class="figure-caption">A 9,000 light-year sinusoidal chain of molecular clouds, the largest coherent gas structure in the Galaxy, oscillating through the Galactic plane. From <a href="https://doi.org/10.1038/s41586-024-07127-3" target="_blank">Konietzka, Goodman, Zucker, ..., Foley et al. (2024)</a>. Drag to rotate; click legend items to toggle layers.</p>
-                <iframe loading="lazy" src="https://faun.rc.fas.harvard.edu/czucker/rkonietzka/radwave/interactive-figure6/" style="width:100%; height:600px; border:none; border-radius:8px; background:#050508;"></iframe>
+                <div class="iframe-wrap" data-src="https://faun.rc.fas.harvard.edu/czucker/rkonietzka/radwave/interactive-figure6/" data-height="600">
+                    <button class="iframe-load-btn">Load Interactive Figure</button>
+                </div>
             </div>
 
             <div class="figure-container">
                 <h3>Orion in 3D: Barnard's Loop &amp; the Orion Complex</h3>
                 <p class="figure-caption">The first interactive 3D map of the Orion star-forming complex, connecting molecular clouds, young stars, and the arc of Barnard's Loop. From <a href="https://ui.adsabs.harvard.edu/abs/2023ApJ...947...66F" target="_blank">Foley, Goodman, Zucker et al. (2023)</a>. Drag to rotate.</p>
-                <iframe loading="lazy" src="https://faun.rc.fas.harvard.edu/czucker/Paper_Figures/mfoley/orion_region_interactive.html" style="width:100%; height:600px; border:none; border-radius:8px; background:#050508;"></iframe>
+                <div class="iframe-wrap" data-src="https://faun.rc.fas.harvard.edu/czucker/Paper_Figures/mfoley/orion_region_interactive.html" data-height="600">
+                    <button class="iframe-load-btn">Load Interactive Figure</button>
+                </div>
             </div>
 
             <div class="pub-list">
@@ -137,7 +145,9 @@
                 <p class="figure-caption">Interactive 3D view of the Per-Tau Shell, a 156 pc diameter star-forming superbubble embedding Perseus and Taurus. From <a href="https://doi.org/10.3847/2041-8213/ac1f96" target="_blank">Bialy, Zucker, Goodman, Foley et al. (2021)</a>. Drag to rotate, or scan the QR code on your phone to view in augmented reality.</p>
                 <div class="ar-figure-layout">
                     <div class="ar-figure-interactive">
-                        <iframe loading="lazy" src="https://faun.rc.fas.harvard.edu/czucker/Paper_Figures/sbialy/pertau_superbubble.html" style="width:100%; height:500px; border:none; border-radius:8px; background:#050508;"></iframe>
+                        <div class="iframe-wrap" data-src="https://faun.rc.fas.harvard.edu/czucker/Paper_Figures/sbialy/pertau_superbubble.html" data-height="500">
+                            <button class="iframe-load-btn">Load Interactive Figure</button>
+                        </div>
                     </div>
                     <div class="ar-figure-qr">
                         <img src="https://faun.rc.fas.harvard.edu/czucker/Paper_Figures/arcode.png" alt="QR code to view the Per-Tau Shell in augmented reality">
@@ -160,6 +170,37 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        // Iframe loader: auto-load on desktop, tap-to-load on mobile
+        (function() {
+            var isMobile = window.innerWidth <= 768;
+            var wraps = document.querySelectorAll('.iframe-wrap');
+
+            function loadIframe(wrap) {
+                var src = wrap.getAttribute('data-src');
+                var height = wrap.getAttribute('data-height') || '600';
+                var iframe = document.createElement('iframe');
+                iframe.src = src;
+                iframe.style.cssText = 'width:100%;height:' + height + 'px;border:none;border-radius:8px;background:#050508;';
+                iframe.loading = 'lazy';
+                wrap.innerHTML = '';
+                wrap.appendChild(iframe);
+            }
+
+            wraps.forEach(function(wrap) {
+                if (!isMobile) {
+                    loadIframe(wrap);
+                } else {
+                    var btn = wrap.querySelector('.iframe-load-btn');
+                    if (btn) {
+                        btn.addEventListener('click', function() {
+                            loadIframe(wrap);
+                        });
+                    }
+                }
+            });
+        })();
+    </script>
     <script>
         if (window.location.hash) {
             requestAnimationFrame(() => {
