@@ -172,12 +172,13 @@
 
     <script src="js/main.js"></script>
     <script>
-        // Iframe loader: auto-load on desktop, tap-to-load on mobile
+        // Iframe loader: lazy-load on desktop (via IntersectionObserver), tap-to-load on mobile/tablet
         (function() {
-            var isMobile = window.innerWidth <= 768;
+            var isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
             var wraps = document.querySelectorAll('.iframe-wrap');
 
             function loadIframe(wrap) {
+                if (wrap.querySelector('iframe')) return;
                 var src = wrap.getAttribute('data-src');
                 var height = wrap.getAttribute('data-height') || '600';
                 var iframe = document.createElement('iframe');
@@ -189,15 +190,25 @@
             }
 
             wraps.forEach(function(wrap) {
-                if (!isMobile) {
-                    loadIframe(wrap);
-                } else {
+                if (isMobile) {
                     var btn = wrap.querySelector('.iframe-load-btn');
                     if (btn) {
                         btn.addEventListener('click', function() {
                             loadIframe(wrap);
                         });
                     }
+                } else if ('IntersectionObserver' in window) {
+                    var observer = new IntersectionObserver(function(entries) {
+                        entries.forEach(function(entry) {
+                            if (entry.isIntersecting) {
+                                loadIframe(wrap);
+                                observer.unobserve(wrap);
+                            }
+                        });
+                    }, { rootMargin: '200px' });
+                    observer.observe(wrap);
+                } else {
+                    loadIframe(wrap);
                 }
             });
         })();
