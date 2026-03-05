@@ -252,6 +252,25 @@ if (canvas) {
         spawnBurst(e.clientX, e.clientY, 15);
     });
 
+    // Touch support for mobile
+    window.addEventListener('touchmove', (e) => {
+        var touch = e.touches[0];
+        mouse.x = touch.clientX;
+        mouse.y = touch.clientY;
+    }, { passive: true });
+    window.addEventListener('touchend', () => {
+        mouse.x = null;
+        mouse.y = null;
+    });
+    window.addEventListener('touchstart', (e) => {
+        if (window.simPanelOpen) return;
+        if (e.target.closest('a, button, input, textarea, select, .navbar, .sim-info-toggle')) return;
+        var touch = e.touches[0];
+        mouse.x = touch.clientX;
+        mouse.y = touch.clientY;
+        spawnBurst(touch.clientX, touch.clientY, 15);
+    }, { passive: true });
+
     resize();
     createParticles();
     animate();
