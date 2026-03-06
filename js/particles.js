@@ -20,6 +20,7 @@ if (canvas) {
         damping: 0.92,
         turbulenceLayers: 3,
         theme: 'mixed',
+        opacity: 0.65,
     };
 
     // Color themes

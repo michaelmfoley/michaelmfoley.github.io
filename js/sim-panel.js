@@ -73,6 +73,17 @@
     bindSlider('ctrl-damping', 'damping', v => 1.79 - parseFloat(v));
     bindSlider('ctrl-turbulence', 'turbulenceLayers', v => parseInt(v));
 
+    // Opacity slider — updates CSS opacity on the canvas element
+    const opacitySlider = document.getElementById('ctrl-opacity');
+    const particleCanvas = document.getElementById('particle-canvas');
+    if (opacitySlider && particleCanvas) {
+        opacitySlider.addEventListener('input', () => {
+            const val = parseFloat(opacitySlider.value);
+            window.simParams.opacity = val;
+            particleCanvas.style.opacity = val;
+        });
+    }
+
     // --- Theme buttons ---
     document.querySelectorAll('.sim-theme-btn').forEach(btn => {
         btn.addEventListener('click', () => {
