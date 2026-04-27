@@ -163,6 +163,17 @@ a:hover {
     padding: 3rem 2.5rem;
 }
 
+.hero-headshot {
+    display: block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1.75rem;
+    border: 1px solid var(--accent-border);
+    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.45), 0 0 0 4px var(--accent-subtle);
+}
+
 .hero h1 {
     font-family: var(--font-body);
     font-size: clamp(2.5rem, 5.5vw, 3.75rem);
