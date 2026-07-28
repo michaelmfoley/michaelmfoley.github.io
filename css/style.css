@@ -10,9 +10,9 @@
     --bg-elevated: rgba(255, 255, 255, 0.03);
     --bg-card: rgba(255, 255, 255, 0.04);
     --bg-card-hover: rgba(255, 255, 255, 0.07);
-    --text: #f0f0f5;
-    --text-secondary: #a0a0b8;
-    --text-tertiary: #8888a0;
+    --text: #f8f8fc;
+    --text-secondary: #b6b6cb;
+    --text-tertiary: #9c9cb3;
     --accent: #7c8aff;
     --accent-hover: #9ba6ff;
     --accent-subtle: rgba(124, 138, 255, 0.08);
